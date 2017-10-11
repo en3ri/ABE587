@@ -1,5 +1,1 @@
-{
-  "test.py::test_counter": true,
-  "test.py::test_hello": true,
-  "test.py::test_usage": true
-}
+{}

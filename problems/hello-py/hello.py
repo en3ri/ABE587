@@ -3,27 +3,21 @@
 
 import sys
 
-NUM = len(sys.argv) - 1
-NAME = sys.argv
+args = sys.argv
+NUM = len(args)
+NUM2 = len(args) - 1
 
+if NUM < 2:
+	print('Usage: {} NAME [NAME2 ...]'.format(args[0]))
+	sys.exit(1)
 
-if NUM == 0:
-	print('Usage: ' + NAME[0] + ' NAME(S)')
-	exit(1)
-
-
-if NUM == 1:
-	print('Hello to the 1 of you: ' + NAME[1] + '!')
 
 if NUM == 2:
-        print('Hello to the 2 of you: ' + NAME[1] + ' and ' + NAME[2] + '!')
+	print('Hello to the 1 of you: {}!'.format(args[1]))
 
-if NUM > 2:
-	print('Hello to the ' + str(NUM) + ' of you: '),
-	i = 1
-	while i < NUM:
-		print(NAME[i], end=', '),
-		i = i + 1
-	else:
-		print('and ' + NAME[i]),
-	print('!')
+if NUM == 3:
+        print('Hello to the 2 of you: {}!'.format(' and '.join(args[1:])))
+
+if NUM > 3:
+        print('Hello to the {} of you: {}, and {}!'
+		.format(NUM2, ', '.join(args[1:-1]), args[-1]))

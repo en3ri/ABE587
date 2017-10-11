@@ -3,24 +3,26 @@
 
 import sys
 
-LEN_ARGV = len(sys.argv)
-ARGV = sys.argv
-
-print(str(ARGV[1:]))
+args = sys.argv
 
 
-STRING = ARGV[1:]
-LETTER = STRING[0:]
-VOWEL = ['a', 'e', 'i', 'o', 'u']
+#Usage Statement
+if len(args) < 2:
+	print('Usage: {} STRING'.format(args[0]))
+	sys.exit(1)
 
+#Main
+
+STRING = ' '.join(args[1:])
+
+VOWELS = ('a', 'e', 'i', 'o', 'u')
 VC = 0
 
-
-if LEN_ARGV < 2:
-        print('Usage: ' + ARGV[0] + ' STRING')
-        sys.exit(1)
+for letter in STRING:
+	if letter == letter in VOWELS: VC = VC + 1
 
 
-for LETTER in ('a', 'e', 'i', 'o', 'u'):
-        VC = VC + 1
-print(VC)
+if VC == 1:
+        print('There is {} vowel in "{}."'.format(VC, STRING))
+else:
+	print('There are {} vowels in "{}."'.format(VC, STRING))
